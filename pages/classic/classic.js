@@ -1,6 +1,6 @@
 // pages/classic/classic.js
-import {HTTP} from '../../utils/http.js'
-let http = new HTTP()
+import { classic} from '../../models/classic.js'
+// let http = new HTTP()
 Page({
 
   /**
@@ -24,12 +24,15 @@ Page({
       //     console.log(this.data)
       //   }
       // })
-      http.request({
-        url:'classic/latest',
-        success:(res)=>{
+      // http.request({
+      //   url:'classic/latest',
+      //   success:(res)=>{
 
-        }
-      });
+      //   }
+      // });
+      classic.getLatest((res)=>{
+        
+      })
   },
 
   /**
