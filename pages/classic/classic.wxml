@@ -1,0 +1,9 @@
+<!--pages/classic/classic.wxml-->
+<!-- <text>pages/classic/classic.wxml</text> -->
+<!-- <view class='container'>
+  <view class='chunk color1'></view>
+  <view class='chunk color2'></view>
+  <view class='chunk color3'></view>
+</view> -->
+<v-like></v-like>
+<v-like></v-like>

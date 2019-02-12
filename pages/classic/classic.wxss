@@ -1,0 +1,29 @@
+/* pages/classic/classic.wxss */
+
+.chunk{
+  /*行内元素不能设置宽高*/
+  /* display: inline-block; */
+
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+ 
+  height: 400px;
+}
+
+.color1{
+  background-color: red
+}
+
+.color2{
+  background-color: aqua
+}
+
+.color3{
+  background-color: blue
+}
