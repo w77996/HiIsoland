@@ -1,48 +1,57 @@
 import {
   config
 } from 'config.js'
-const tip = {
-  1: '',
-  1005: '',
-
-
+const tips = {
+  1: '错误',
+  1000: '输入参数错误',
+  1005: '不正确或无效的开发者key',
+  3000: '期刊不存在'
 }
+
 class HTTP {
   request(params) {
-    if (!params.method) {
-      params.method = 'GET'
-    }
+    // url, data, method
     wx.request({
-      url: config.api_base.url + params.url,
+      url: config.api_base_url + params.url,
       data: params.data,
-      method: params.method,
+      method: params.method || "GET",
       header: {
         'content-type': 'application/json',
-        'appkey': config.appkey
+        'appkey': config.appKey
       },
-      success: (res) => {
-        let code = res.statusCode.toString;
+      success: function (res) {
+        let code = res.statusCode.toString()
         if (code.startsWith('2')) {
-          params.success(res);
+          params.success && params.success(res)
         } else {
-          let error_code = res.data.error_code;
-          this._show_error(error_code)
+          // params.error && params.error(res)
+          let error_code = res.data.error_code
+          console.log(this, res)
+          wx.showToast({
+            title: tips[error_code],
+            icon: 'none',
+            duration: 2000
+          })
         }
-
       },
-      fail: (err) => {
-        this._show_error(1)
+      fail: function (err) {
+        // params.fail && params.fail(err)
+        wx.showToast({
+          title: tips[1],
+          icon: 'warn',
+          duration: 2000
+        })
       }
     })
   }
 
-  _show_error(error_code) {
+  show_error(error_code) {
     if (!error_code) {
-      error_code = 1;
+      error_code = 1
     }
     wx.showToast({
-      title: tip[error_code],
-      icon: 'none',
+      title: tips[error_code],
+      icon: 'warn',
       duration: 2000
     })
   }
@@ -50,4 +59,4 @@ class HTTP {
 
 export {
   HTTP
-}
+};

@@ -1,6 +1,7 @@
 // pages/classic/classic.js
-import { classic} from '../../models/classic.js'
+import { ClassicModel} from '../../models/classic.js'
 // let http = new HTTP()
+let classic = new ClassicModel()
 Page({
 
   /**
@@ -31,7 +32,10 @@ Page({
       //   }
       // });
       classic.getLatest((res)=>{
-        
+        console.log(res)
+        this.setData({
+          classic:res.data
+        })
       })
   },
 

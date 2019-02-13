@@ -1,0 +1,7 @@
+<!--components/classic/movie/index.wxml-->
+<text>components/classic/movie/index.wxml</text>
+<view>
+  <image></image>
+  <image></image>
+  <text></text>
+</view>

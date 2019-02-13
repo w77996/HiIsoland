@@ -1,5 +1,5 @@
 import {HTTP} from '../utils/http.js'
-class ClassicModels extends HTTP {
+class ClassicModel extends HTTP {
   getLatest(sCallback) {
     this.request({
       url: 'classic/latest',
@@ -10,4 +10,4 @@ class ClassicModels extends HTTP {
   }
 }
 
-export { ClassicModels as classic}
+export { ClassicModel }
