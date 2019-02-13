@@ -11,7 +11,10 @@
     <v-like class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
   </view>
   <!-- <v-like></v-like> -->
-  <v-movie img="{{classic.image}}" content="{{classic.content}}"></v-movie>
+  
+  <v-movie wx:if="{{classic.type==100}}" img="{{classic.image}}" content="{{classic.content}}"></v-movie>
+  <v-music wx:if="{{classic.type==200}}" img="{{classic.image}}" content="{{classic.content}}"></v-music>
+  <v-essay wx:if="{{classic.type==300}}" img="{{classic.image}}" content="{{classic.content}}"></v-essay>
   <!-- <view>{{classic.fav_nums}}</view> -->
-  <v-navi bind:left="onNext" bind:right="onPervious" class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}"></v-navi>
+  <v-navi bind:left="onNext" bind:right="onPrevious" class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}"></v-navi>
 </view>

@@ -55,21 +55,35 @@ Page({
     likeModel.like(behavior, this.data.classic.id, this.data.classic.type);
   },
   onNext: function (event) {
-    console.log(event);
+    this._updateClassic('next')
     // let behavior = event.detail.behavior;
     // likeModel.like(behavior, this.data.classic.id, this.data.classic.type);
   },
-  onPervious: function (event) {
+ 
+  onPrevious: function (event) {
     console.log(event);
     // let behavior = event.detail.behavior;
     // likeModel.like(behavior, this.data.classic.id, this.data.classic.type);
+    // let index = this.data.classic.index;
+    // console.log(index)
+    // classicModel.getPrevious(index,(res)=>{
+    //     this.setData({
+    //       classic:res.data,
+    //       latest:classicModel.isLatest(res.index),
+    //       first:classicModel.isFirst(res.index)
+    //     })
+    // });
+    this._updateClassic('previous')
+  },
+  _updateClassic: function (nextOrPrevious) {
     let index = this.data.classic.index;
-    classicModel.getPrevious(index,(res)=>{
-        this.setData({
-          classic:res,
-          latest:classicModel.isLatest(res.index),
-          first:classicModel.isFirst(res.index)
-        })
+    console.log(index)
+    classicModel.getClassic(index, nextOrPrevious,(res) => {
+      this.setData({
+        classic: res.data,
+        latest: classicModel.isLatest(res.index),
+        first: classicModel.isFirst(res.index)
+      })
     });
   },
   /**

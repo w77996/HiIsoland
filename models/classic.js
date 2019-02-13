@@ -11,14 +11,22 @@ class ClassicModel extends HTTP {
       }
     })
   }
-  getPrevious(index, sCallback) {
+  getClassic(index, nextOrPrevious,sCallback) {
     this.request({
-      url: 'classic/' + index + '/previous',
+      url: 'classic/' + index + '/' + nextOrPrevious,
       success: (res) => {
         sCallback(res)
       }
     })
   }
+  // getNext(index, sCallback) {
+  //   this.request({
+  //     url: 'classic/' + index + '/previous',
+  //     success: (res) => {
+  //       sCallback(res)
+  //     }
+  //   })
+  // }
   isFirst(index) {
     return index == 1 ? true : false;
   }

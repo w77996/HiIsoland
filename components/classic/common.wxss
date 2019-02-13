@@ -1,5 +1,4 @@
-@import "../common.wxss";
-/* components/classic/movie/index.wxs
+/* components/classic/movie/index.wxss */
 .container{
   display: flex;
   flex-direction: column;
@@ -23,4 +22,4 @@
   font-size: 36rpx;
   max-width: 550rpx;
   text-align: center;
-} */
+}
