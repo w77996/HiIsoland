@@ -5,10 +5,13 @@
   <view class='chunk color2'></view>
   <view class='chunk color3'></view>
 </view> -->
-<view class="head">
-  <v-epsoide class="epsoide" index="{{classic.index}}"></v-epsoide>
-  <v-like class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+<view class='container'>
+  <view class="head">
+    <v-epsoide class="epsoide" index="{{classic.index}}"></v-epsoide>
+    <v-like class="like" bind:like="onLike" like="{{classic.like_status}}" count="{{classic.fav_nums}}" />
+  </view>
+  <!-- <v-like></v-like> -->
+  <v-movie img="{{classic.image}}" content="{{classic.content}}"></v-movie>
+  <!-- <view>{{classic.fav_nums}}</view> -->
+  <v-navi bind:left="onNext" bind:right="onPervious" class="navi" title="{{classic.title}}" first="{{first}}" latest="{{latest}}"></v-navi>
 </view>
-<!-- <v-like></v-like> -->
-<v-movie img="{{classic.image}}" content="{{classic.content}}"></v-movie>
-<!-- <view>{{classic.fav_nums}}</view> -->

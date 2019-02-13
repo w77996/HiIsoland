@@ -1,37 +1,19 @@
 /* pages/classic/classic.wxss */
 
-.chunk{
-  /*行内元素不能设置宽高*/
-  /* display: inline-block; */
 
-  width: 100px;
-  height: 100px;
-  background-color: black;
-}
 
 .container{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
  
-  height: 400px;
-}
-
-.color1{
-  background-color: red
-}
-
-.color2{
-  background-color: aqua
-}
-
-.color3{
-  background-color: blue
 }
 
 .head{
   display: flex;
   flex-direction: row;
   height: 100rpx;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid #f5f5f5;
@@ -45,4 +27,9 @@
 
 .like{
   margin-top: 6rpx;
+}
+
+.navi{
+  position: absolute;
+  bottom: 80rpx;
 }
