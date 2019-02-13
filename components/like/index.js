@@ -1,4 +1,5 @@
 // components/like/index.js
+
 Component({
   /**
    * 组件的属性列表
@@ -32,11 +33,15 @@ Component({
       let like = this.properties.like;
       let count = this.properties.count;
       console.log(event);
-      count = like?count-1:count+1;
+      count = like ? count - 1 : count + 1;
       this.setData({
-        count:count,
-        like:!like
+        count: count,
+        like: !like
       });
+      let behavior = this.properties.like ? 'like' : 'cancel';
+      this.triggerEvent('like', {
+        behavior: behavior
+      }, {})
     }
   }
 })
