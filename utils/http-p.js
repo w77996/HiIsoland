@@ -9,23 +9,30 @@ const tips = {
 }
 
 class HTTP {
-  request(params) {
+  request({url, data = {}, method = 'GET'}) {
+      return new Promise((resolve,reject)=>{
+            this._request(url,resolve,reject,data,method);
+      })
+  }
+  _request(url, resolve,reject,data={}, method='GET') {
     // url, data, method
     wx.request({
-      url: config.api_base_url + params.url,
-      data: params.data,
-      method: params.method || "GET",
+      url: config.api_base_url + url,
+      data: data,
+      method: method,
       header: {
         'content-type': 'application/json',
         'appkey': config.appKey
       },
-      success: function (res) {
-        let code = res.statusCode.toString()
+      success: function(res) {
+        const code = res.statusCode.toString()
         if (code.startsWith('2')) {
-          params.success && params.success(res)
+          // params.success && params.success(res)
+          resolve(res)
         } else {
           // params.error && params.error(res)
-          let error_code = res.data.error_code
+          reject()
+          const error_code = res.data.error_code
           console.log(this, res)
           wx.showToast({
             title: tips[error_code],
@@ -34,8 +41,9 @@ class HTTP {
           })
         }
       },
-      fail: function (err) {
+      fail: function(err) {
         // params.fail && params.fail(err)
+        reject()
         wx.showToast({
           title: tips[1],
           icon: 'warn',
@@ -49,6 +57,7 @@ class HTTP {
     if (!error_code) {
       error_code = 1
     }
+    const tip = tips[error_code]
     wx.showToast({
       title: tips[error_code],
       icon: 'warn',
