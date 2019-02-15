@@ -14,8 +14,10 @@
   <view class='sub-container'>
     <image class="head-img" src="/images/book/quality.png" />
     <view class= "books-container">
-    <block wx:for="{{books}}" wx:key="{{index}}">
-      <v-book book="{{item}}" />
+    <block wx:for="{{books}}" wx:key="id">
+      <v-book book="{{item}}" >
+        <slot name="after"></slot>
+      </v-book>
     </block>
     </view>
   </view>
