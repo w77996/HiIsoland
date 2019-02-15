@@ -1,5 +1,6 @@
 <!--pages/book-detail/book-detail.wxml-->
 <!--pages/detail/detail.wxml-->
+<!-- <wxs src="../../util/filter.wxs" module="util"/> -->
 <view class="container">
 
   <view class="head">
@@ -20,7 +21,7 @@
   </view>
   <view class="sub-container">
     <text class="headline">内容简介</text>
-    <text decode="{{true}}" class="content">{{book.summary}}</text>
+    <text decode="{{true}}" class="content">{{util.format(book.summary)}}</text>
   </view>
 </view>
 <!-- <view class="sub-container">
@@ -81,7 +82,7 @@
 
 
 
-<!-- <wxs module="util">
+<wxs module="util">
   var limit = function(array, length) {
     return array.slice(0, length)
   }
@@ -97,4 +98,4 @@
     limit: limit,
     format:format
   }
-</wxs> -->
+</wxs>
