@@ -58,6 +58,27 @@ Page({
       posting:false
     })
   },
+
+  onPost:function(event){
+      const commentInput = event.detail.value;
+      if(commentInput.length > 12){
+        wx.showToast({
+          title: '12',
+          icon:'none'
+        })
+      }
+
+      this.data.comments.unshift({
+        cotent:comment,
+        nums:1
+      })
+      bookModel.postComment(this.data.book.id,comment).then((res)=>{
+        this.setData({
+          comments:this.data.comments,
+          posting:false
+        })
+      })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
